@@ -30,11 +30,16 @@ export default class ImageComponent extends React.Component{
         }
     }
 
+    stopEvents = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
     render(){
         const { imageSource } = this.state;
         const {  updateImageOnClick, imageNumber } = this.props;
         return(
-            <div onClick={updateImageOnClick.bind(this,imageNumber)} className='img-container'>
+            <div onDoubleClick={this.stopEvents} onClick={updateImageOnClick.bind(this,imageNumber)} className='img-container'>
                 <img className='image-content' src={imageSource}/>
             </div>
         )   

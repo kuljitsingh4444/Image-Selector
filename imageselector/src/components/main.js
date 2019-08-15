@@ -6,9 +6,6 @@ export default class MainComponent extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-
-        }
     }
 
     componentDidMount(){
@@ -19,7 +16,7 @@ export default class MainComponent extends React.Component{
         window.removeEventListener('keydown',this.handleKeyDown)
     }
 
-    updateImage = (imageNumber) => {
+    updateImage = (imageNumber) => { 
         const { imagesIndex } = this.props;
         let imageIndex = getRandomImageIndex();
         do {
@@ -31,12 +28,13 @@ export default class MainComponent extends React.Component{
 
     handleKeyDown = (e) => {
         if (e.keyCode === 37 ) {
-            //left key
+            //left key 
             this.updateImage(1);
         } else if(e.keyCode === 39) {
             //right key
             this.updateImage(2);
         } else if(e.keyCode === 32) {
+            //space key
             this.swapImages();
         }
     }
@@ -51,7 +49,9 @@ export default class MainComponent extends React.Component{
         upadateImageIndex({imageIndex,imageNumber})
     }
 
-    updateImageOnClick = (imageNumber) => {
+    updateImageOnClick = (imageNumber, event) => {
+        event.stopPropagation();
+        event.preventDefault();
         this.updateImage(imageNumber);
     }
 
