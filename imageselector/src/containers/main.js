@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MainComponent from '../components/main';
-import { setDataAction } from '../duck/operations';
+// import { setDataAction } from '../duck/operations';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,9 +10,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setDataAction: (data) => {
-            return dispatch(setDataAction(data));
-        },
+        // setDataAction: (data) => {
+        //     return dispatch(setDataAction(data));
+        // },
     };
 }
 

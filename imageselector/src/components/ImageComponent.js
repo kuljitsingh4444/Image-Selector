@@ -1,10 +1,29 @@
 import React from 'react';
-import image from '../assets/one.png';
+import { getRandomImageIndex } from '../utils';
+import imageMapping from '../constant';
 
-export default function(){
-    return(
-        <div className='img-container'>
-            <img className='image-content' src={image}/>
-        </div>
-    )
+export default class ImageComponent extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            imageSource : ''
+        }
+    }
+
+    componentDidMount(){
+        const imageIndex = getRandomImageIndex();
+        this.setState({
+            imageSource : imageMapping[imageIndex]
+        })
+    }
+
+    render(){
+        const { imageSource } = this.state;
+        return(
+            <div className='img-container'>
+                <img className='image-content' src={imageSource}/>
+            </div>
+        )   
+    }
 }

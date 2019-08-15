@@ -1,10 +1,9 @@
 import Types from './types';
 
-const setDataAction = (data) => ({
-    type : Types.SET_DATA,
-    data : data
+const getImageIndex = () => ({
+    type : Types.GET_IMAGE_INDEX
 })
 
 export default {
-    setDataAction
+    getImageIndex
 }

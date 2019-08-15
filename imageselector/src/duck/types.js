@@ -1,5 +1,5 @@
-const SET_DATA = 'SET_DATA';
+const GET_IMAGE_INDEX = 'GET_IMAGE_INDEX';
 
 export default {
-    SET_DATA
+    GET_IMAGE_INDEX
 }

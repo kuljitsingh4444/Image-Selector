@@ -1,7 +1,8 @@
 import Types from '../types';
 
 const initialState = {
-    data : 123
+    firstImageIndex : null,
+    secondImageIndex : null
 }
 
 export default function ( state = initialState, action ){
