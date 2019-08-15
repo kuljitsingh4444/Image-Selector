@@ -67,6 +67,8 @@ export default class MainComponent extends React.Component{
             this.updateImage(2);
         } else if(e.keyCode === 32) {
             //space key
+            e.stopPropagation();
+            e.preventDefault();
             this.swapImages();
         }
     }
