@@ -5,6 +5,11 @@ const upadateImageIndex = (data) => ({
     data : data
 })
 
+const swapImagesAction = () => ({
+    type : Types.SWAP_IMAGES
+})
+
 export default {
-    upadateImageIndex
+    upadateImageIndex,
+    swapImagesAction
 }
