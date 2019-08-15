@@ -1,0 +1,21 @@
+body {
+    background: lightblue;
+}
+
+.images-container { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img.image-content {
+    height: 500px;
+    border: 1px solid;
+}
+
+.img-container {
+    text-align: center
+}
+.app-content {
+    height: 100vh;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageComponent from './ImageComponent';
 
 export default class MainComponent extends React.Component{
 
@@ -7,7 +8,13 @@ export default class MainComponent extends React.Component{
     }
 
     render(){
-        console.log(this.props.data)
-        return(this.props.data)
+        return(
+            <div className='app-content'>
+                <div className='images-container'>
+                    <ImageComponent/>
+                    <ImageComponent/>
+                </div>
+            </div>
+        )
     }
 }
