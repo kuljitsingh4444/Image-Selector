@@ -12,12 +12,25 @@ export default class ImageComponent extends React.Component{
     }
 
     componentDidMount(){
-        const { imageNumber, upadateImageIndex } = this.props;
+        this.setImage();
+    }
+    
+    setImage = () => {
+        const { imageNumber, updateImageData } = this.props;
         const imageIndex = getRandomImageIndex();
-        upadateImageIndex({imageIndex,imageNumber})
-        this.setState({
-            imageSource : imageMapping[imageIndex]
-        })
+        // this.setState({
+        //     imageSource : imageMapping[imageIndex]
+        // })
+        updateImageData({imageIndex,imageNumber})
+    }
+
+    componentDidUpdate(prevProps){
+        const { imageNumber, imagesIndex } = this.props;
+        if( prevProps.imagesIndex[imageNumber] !== imagesIndex[imageNumber]){
+            this.setState({
+                imageSource : imageMapping[imagesIndex[imageNumber]]
+            })
+        }
     }
 
     render(){

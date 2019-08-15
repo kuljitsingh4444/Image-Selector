@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import MainComponent from '../components/main';
-// import { setDataAction } from '../duck/operations';
+import { upadateImageIndex } from '../duck/operations';
 
 const mapStateToProps = (state) => {
     return {
-        data : state.reducer.data
+        imagesIndex : state.reducer.imagesIndex
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // setDataAction: (data) => {
-        //     return dispatch(setDataAction(data));
-        // },
+        upadateImageIndex: (data) => {
+            return dispatch(upadateImageIndex(data));
+        },
     };
 }
 
