@@ -19,7 +19,7 @@ export default class MainComponent extends React.Component{
         window.removeEventListener('keydown',this.handleKeyDown)
     }
 
-    handleArrowKey = (imageNumber) => {
+    updateImage = (imageNumber) => {
         const { imagesIndex } = this.props;
         let imageIndex = getRandomImageIndex();
         do {
@@ -31,10 +31,19 @@ export default class MainComponent extends React.Component{
 
     handleKeyDown = (e) => {
         if (e.keyCode === 37 ) {
-            this.handleArrowKey(1);
+            //left key
+            this.updateImage(1);
         } else if(e.keyCode === 39) {
-            this.handleArrowKey(2);
+            //right key
+            this.updateImage(2);
+        } else if(e.keyCode === 32) {
+            this.swapImages();
         }
+    }
+
+    swapImages = () => {
+        const { swapImagesAction } = this.props;
+        swapImagesAction();
     }
 
     updateImageData = ({ imageIndex, imageNumber }) => {
@@ -42,12 +51,16 @@ export default class MainComponent extends React.Component{
         upadateImageIndex({imageIndex,imageNumber})
     }
 
+    updateImageOnClick = (imageNumber) => {
+        this.updateImage(imageNumber);
+    }
+
     render(){
         return(
             <div className='app-content'>
                 <div className='images-container'>
-                    <ImageContainer updateImageData={this.updateImageData} imageNumber={1}/>
-                    <ImageContainer updateImageData={this.updateImageData} imageNumber={2}/>
+                    <ImageContainer updateImageOnClick={this.updateImageOnClick} updateImageData={this.updateImageData} imageNumber={1}/>
+                    <ImageContainer updateImageOnClick={this.updateImageOnClick} updateImageData={this.updateImageData} imageNumber={2}/>
                 </div>
             </div>
         )
