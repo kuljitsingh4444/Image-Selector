@@ -6,14 +6,46 @@ export default class MainComponent extends React.Component{
 
     constructor(props){
         super(props);
+        this.clickCount = 0;
+        this.timeOut = null;
     }
 
     componentDidMount(){
         window.addEventListener('keydown',this.handleKeyDown)
+        window.addEventListener('click', this.handleWindowClick)
     }
 
     componentWillUnmount(){
-        window.removeEventListener('keydown',this.handleKeyDown)
+        window.removeEventListener('keydown',this.handleKeyDown);
+        window.removeEventListener('click', this.handleWindowClick);
+    }
+
+    handleWindowClick = () => {
+        this.clickCount++;
+        if(this.clickCount === 1 ) {
+            this.timeOut = setTimeout(()=>{
+                this.clickCount = 0;
+                //single click event
+                //waits 300ms for user to do a double click.
+                this.changeBothImages();
+            },300)
+        } else if ( this.clickCount === 2 ) {
+            //double click event
+            clearTimeout(this.timeOut)
+            this.clickCount = 0;
+            this.updateSameImages();
+        }
+    }
+
+    updateSameImages = () => {
+        const imageIndex = getRandomImageIndex();
+        this.updateImageData({ imageIndex , imageNumber : 1 })
+        this.updateImageData({ imageIndex , imageNumber : 2 })
+    }
+
+    changeBothImages = () => {
+        this.updateImage(1);
+        this.updateImage(2);
     }
 
     updateImage = (imageNumber) => { 
