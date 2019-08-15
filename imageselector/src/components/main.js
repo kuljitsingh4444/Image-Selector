@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageComponent from './ImageComponent';
+import ImageContainer from '../containers/ImageContainer';
 
 export default class MainComponent extends React.Component{
 
@@ -38,8 +38,8 @@ export default class MainComponent extends React.Component{
         return(
             <div className='app-content'>
                 <div className='images-container'>
-                    <ImageComponent/>
-                    <ImageComponent/>
+                    <ImageContainer imageNumber={1}/>
+                    <ImageContainer imageNumber={2}/>
                 </div>
             </div>
         )

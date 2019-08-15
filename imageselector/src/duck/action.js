@@ -1,9 +1,10 @@
 import Types from './types';
 
-const getImageIndex = () => ({
-    type : Types.GET_IMAGE_INDEX
+const upadateImageIndex = (data) => ({
+    type : Types.UPDATE_IMAGE_INDEX,
+    data : data
 })
 
 export default {
-    getImageIndex
+    upadateImageIndex
 }

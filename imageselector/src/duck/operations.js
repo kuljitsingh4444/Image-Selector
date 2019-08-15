@@ -1,5 +1,5 @@
 import ActionCreator from './action';
 
-export const getImageIndex = (data) => dispatch => {
-    dispatch(ActionCreator.getImageIndex(data));
+export const upadateImageIndex = (data) => dispatch => {
+    dispatch(ActionCreator.upadateImageIndex(data));
 }

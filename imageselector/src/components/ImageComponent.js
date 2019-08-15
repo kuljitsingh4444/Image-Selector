@@ -12,7 +12,9 @@ export default class ImageComponent extends React.Component{
     }
 
     componentDidMount(){
+        const { imageNumber, upadateImageIndex } = this.props;
         const imageIndex = getRandomImageIndex();
+        upadateImageIndex({imageIndex,imageNumber})
         this.setState({
             imageSource : imageMapping[imageIndex]
         })
