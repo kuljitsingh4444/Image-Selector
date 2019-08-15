@@ -1,0 +1,5 @@
+const UPDATE_IMAGE_INDEX = 'UPDATE_IMAGE_INDEX';
+
+export default {
+    UPDATE_IMAGE_INDEX
+}
